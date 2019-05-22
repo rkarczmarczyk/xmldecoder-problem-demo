@@ -53,7 +53,7 @@ class FileReader {
     public NotUsed loadFiles() {
         List<String> paths = listFiles(readJob);
         return Source.from(paths)
-                .via(Flow.of(String.class).map(p -> loadFile(p)))
+                .via(Flow.of(String.class).mapAsync(5, p -> loadFile(p)))
                 .to(Sink.foreach(System.out::println)).run(ActorMaterializer.create(system));
     }
 
