@@ -86,12 +86,3 @@ class FileReader {
 class ReadJob {
     private final Path holderDirPath;
 }
-
-@Data
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
-class FileDto {
-    String field1;
-    String field2;
-}
